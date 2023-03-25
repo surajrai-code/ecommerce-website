@@ -6,6 +6,7 @@ import CartButton from "../Cart/CartButton";
 import { Route, Routes } from "react-router-dom";
 import About from './About'
 import Home from "./Home";
+import ContactUs from './ContactUs'
 const Header = (props) => {
   return (
     <div>
@@ -42,7 +43,9 @@ const Header = (props) => {
       </Navbar>
      
       <Routes><Route path="about" element={<About />} />
-      <Route path="home" element={<Home />} /></Routes>
+      <Route path="home" element={<Home />} />
+      <Route path="contactus" element={<ContactUs />} />
+      </Routes>
     </div>
   );
 };

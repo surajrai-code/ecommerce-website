@@ -1,6 +1,7 @@
 // import Footer from "./components/Layout/Footer";
 // import Header from "./components/Layout/Header";
 
+import AddMovie from './components/Movies/AddMovie'
 import MovieList from "./components/Movies/MovieList";
 import React, { useEffect, useState } from "react";
 import { useCallback } from "react";
@@ -39,6 +40,7 @@ function App() {
   },[fetchMoviesHandler])
   return (
     <div>
+    <AddMovie/>
     <section><button onClick={fetchMoviesHandler}>Fetch Movies</button></section>
       <section>
       {!isLoading && <MovieList movies={movies} />}

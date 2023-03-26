@@ -2,12 +2,12 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import { Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import CartButton from "../Cart/CartButton";
 import { Route, Routes } from "react-router-dom";
 import About from './About'
 import Home from "./Home";
 import ContactUs from './ContactUs'
-import ProductList from "../Store/ProductList";
+import CartButon from "../Cart/CartButon";
+import ProductList from "../Pages/ProductList";
 const Header = (props) => {
   return (
     <div>
@@ -39,14 +39,14 @@ const Header = (props) => {
           >
             Contact us
           </NavLink>
-          <CartButton onButtonpass={props.onOpenButton} />
+          <CartButon/>
         </Container>
       </Navbar>
      
       <Routes><Route path="about" element={<About />} />
       <Route path="home" element={<Home />} />
       <Route path="contactus" element={<ContactUs />} />
-      <Route path="productlist" element={<ProductList />} />
+      <Route path="store" element={<ProductList />} />
 
       </Routes>
     </div>

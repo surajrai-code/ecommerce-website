@@ -1,6 +1,10 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Button } from "react-bootstrap";
+import CartContext from "../Store/CartContext";
 const CartButton = (props) => {
+  const cartctx = useContext(CartContext);
+
+  const quantity = cartctx.totalAmount;
   return (
     <Fragment>
       <Button
@@ -9,7 +13,7 @@ const CartButton = (props) => {
         style={{ border: "1px solid skyblue" }}
         type="click"
       >
-        Cart 0
+        Cart {quantity}
       </Button>
     </Fragment>
   );

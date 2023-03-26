@@ -1,6 +1,8 @@
 import Footer from "./components/Layout/Footer";
 import Header from "./components/Layout/Header";
-
+import { useState } from "react";
+import ProductList from "./components/Store/ProductList";
+import Cart from "./components/Cart/Cart";
 // import AddMovie from './components/Movies/AddMovie'
 // import MovieList from "./components/Movies/MovieList";
 // import React, { useEffect, useState } from "react";
@@ -82,6 +84,13 @@ function App() {
   // if (isLoading) {
   //   content = <p>Loading...</p>;
   // }
+  const [cartshow, setCartShow] = useState(false);
+  const CartshowHandler = () => {
+    setCartShow(true);
+  };
+  const CartHideHandler = () => {
+    setCartShow(false);
+  };
   return (
     <div>
     {/* <AddMovie/> */}
@@ -98,8 +107,9 @@ function App() {
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
         </section>
       <section>{content}</section> */}
-      <Header/>
-
+      <Header onOpenButton={CartshowHandler}></Header>
+      {cartshow && <Cart onClosebutton={CartHideHandler}></Cart>}
+<ProductList/>
 <Footer/>
     </div>
   );

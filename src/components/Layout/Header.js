@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import About from './About'
 import Home from "./Home";
 import ContactUs from './ContactUs'
+import ProductList from "../Store/ProductList";
 const Header = (props) => {
   return (
     <div>
@@ -45,6 +46,8 @@ const Header = (props) => {
       <Routes><Route path="about" element={<About />} />
       <Route path="home" element={<Home />} />
       <Route path="contactus" element={<ContactUs />} />
+      <Route path="productlist" element={<ProductList />} />
+
       </Routes>
     </div>
   );

@@ -1,0 +1,24 @@
+.img {
+    display:inline-flex;
+    margin :40px auto auto auto ;
+    }
+    .star {
+        color:white;
+        background-color:green;
+        border:0px solid green;
+        border-radius: 12px;
+        padding:0.5px 8px 0.5px 8px;
+    }
+    .starin {
+        font-size: 16px;
+        font-weight: bold;
+    
+    }
+    
+    .image_container
+    {
+        width: 400px;
+      height: 400px;
+      overflow: hidden;
+    }
+     

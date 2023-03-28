@@ -1,0 +1,25 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .cart-item img {
+    margin-right: 10px;
+  }
+  
+  .cart-item h4 {
+    margin: 0;
+  }
+  
+  .cart-item button {
+    margin: 0 5px;
+  }
+  
+  .cart-item .price {
+    margin-left: auto;
+    text-size-adjust: 50px;
+    font-size: larger;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  }

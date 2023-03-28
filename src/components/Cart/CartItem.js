@@ -1,33 +1,81 @@
-import React, { useContext } from "react";
-import classes from "./CartItem.module.css";
-import axios from "axios";
-import CartContext from "../Store/cart-context";
+export const productsArr = [
+  {
+    id: "p1",
 
-const CartItems = (props) => {
-  let emailId = localStorage.getItem("email").replace(".", "").replace("@", "");
-  const cartCntx = useContext(CartContext);
+    title: "Colors",
 
-  const onRemoveHandler = (event) => {
-    cartCntx.removeItem(props.id);
-    const id = props._id;
+    price: 100,
 
-    axios.delete(
-      `https://crudcrud.com/api/3311b13bcd1f42d5bb9ad7016452517e/cart${emailId}/${id}`
-    );
-  };
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
 
-  return (
-    <ul>
-      <li id={`cart-item-${props.id}`}>
-        <h2 className={classes.title}>{props.title}</h2>
-        <img src={props.img} alt="icon" className={classes.img}></img>
-        <span className={classes.price}> Rs.{props.price}</span>
-        <span className={classes.quantity}> x {props.quantity}</span>
-        <button className={classes.button} onClick={onRemoveHandler}>
-          -
-        </button>
-      </li>
-    </ul>
-  );
-};
-export default CartItems;
+    ProductReview: [
+      { name: "Milan", review: "I recommend this product" },
+
+      { name: "Vikesh", review: "ok, product" },
+
+      { name: "Zoya", review: "good in this price" },
+
+      { name: "Krishna", review: "worth it" },
+    ],
+  },
+
+  {
+    id: "p2",
+
+    title: "Black and white Colors",
+
+    price: 50,
+
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+
+    ProductReview: [
+      { name: "Milan", review: "I recommend this product" },
+
+      { name: "Vikesh", review: "ok, product" },
+
+      { name: "Zoya", review: "good in this price" },
+
+      { name: "Krishna", review: "worth it" },
+    ],
+  },
+
+  {
+    id: "p3",
+
+    title: "Yellow and Black Colors",
+
+    price: 70,
+
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+
+    ProductReview: [
+      { name: "Milan", review: "I recommend this product" },
+
+      { name: "Vikesh", review: "ok, product" },
+
+      { name: "Zoya", review: "good in this price" },
+
+      { name: "Krishna", review: "worth it" },
+    ],
+  },
+
+  {
+    id: "p4",
+
+    title: "Blue Color",
+
+    price: 100,
+
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+
+    ProductReview: [
+      { name: "Milan", review: "I recommend this product" },
+
+      { name: "Vikesh", review: "ok, product" },
+
+      { name: "Zoya", review: "good in this price" },
+
+      { name: "Krishna", review: "worth it" },
+    ],
+  },
+];

@@ -1,119 +1,49 @@
-import React, { Fragment } from "react";
-import classes from "./ProductDetails.module.css";
+import React, { useContext } from "react";
+import { Cart } from "../Cart/CartContext";
 import { useParams } from "react-router-dom";
+import classes from "./ProductDetails.module.css";
 
-const ProductDetail = (props) => {
-  const params = useParams();
+const ProductDetails = () => {
+  const { productsArr } = useContext(Cart);
+
+  const { id } = useParams(); //params in key, value pair we destrcuring and get key only
+
+  //here array so, for finding that perticular image we use find
+
+  let product = productsArr.find((value) => value.id === id);
+
+  console.log(product);
 
   return (
-    <Fragment>
-    {params.product_id === "1" && (
-      <section className={classes.sections}>
-        <div >
-          <img
-            src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png"
-            alt="Website"
-            className={classes.img}
-          ></img>
-          <div className={classes.details}>
-            <h1 className={classes.title}>Album 1</h1>
-            <h2>best album of the year</h2>
-            <button className={classes.rating}>4.5⭐</button>
-            
+    <>
+      <div className={classes.itemContainer}>
+        <div className={classes.itemImage}>
+          <img src={product.imageUrl} alt="product-images" />
+
+          <p>Insert image Block</p>
+        </div>
+
+        <div className={classes.itemDetails}>
+          <h1>{product.title}</h1>
+
+          <h3>Price: ${product.price} </h3>
+          <span> 55% off</span>
+
+          <div className={classes.itemReview}>
+            <p className={classes.reviewtitle}>Reviews : </p>
+
+            {product.ProductReview.map((e) => (
+              <div className={classes.itemReview1}>
+                <p>{e.name} - </p>
+
+                <p>{e.review}</p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className={classes.reviews}>
-          <h5> Reviews </h5>
-          <p> Yash </p>
-          <p> Best album. Worth buying</p>
-          <p>⭐⭐⭐⭐</p>
-        </div>
-      </section>
-    )}
-    {params.product_id === "2" && (
-      <section className={classes.sections}>
-        <div >
-          <img
-            src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png"
-            alt="Website"
-            className={classes.img}
-          ></img>
-          <div className={classes.details}>
-            <h1 className={classes.title}>Album 2</h1>
-            <h2>best album of this month</h2>
-            <button className={classes.rating}>4.3⭐</button>
-            
-          </div>
-        </div>
-        <div className={classes.reviews}>
-          <h5> Reviews </h5>
-          <p> vaibhav </p>
-          <p> Awesome in cheapest rate</p>
-          <p>⭐⭐⭐</p>
-          <p> Golu</p>
-          <p> best album</p>
-          <p>⭐⭐⭐⭐</p>
-        </div>
-      </section>
-    )}
-
-    {params.product_id === "3" && (
-      <section className={classes.sections}>
-        <div >
-          <img
-            src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png"
-            alt="Website"
-            className={classes.img}
-          ></img>
-          <div className={classes.details}>
-            <h1 className={classes.title}>Album 3</h1>
-            <h2>best album of this month</h2>
-            <button className={classes.rating}>4.3⭐</button>
-           
-          </div>
-        </div>
-        <div className={classes.reviews}>
-          <h5> Reviews </h5>
-
-          <p>Amit </p>
-          <p> best album</p>
-          <p>⭐⭐⭐⭐</p>
-          <p> kartik </p>
-          <p> Awesome in cheapest rate</p>
-          <p>⭐⭐⭐</p>
-        </div>
-      </section>
-    )}
-
-    {params.product_id === "4" && (
-      <section className={classes.sections}>
-        <div >
-          <img
-            src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png"
-            alt="Website"
-            className={classes.img}
-          ></img>
-          <div className={classes.details}>
-            <h1 className={classes.title}>Album 4</h1>
-            <h2>Latest this week</h2>
-            <button className={classes.rating}>2.3⭐</button>
-            
-          </div>
-        </div>
-        <div className={classes.reviews}>
-          <h5> Reviews </h5>
-
-          <p> Amit</p>
-          <p>not worth buying..</p>
-          <p>⭐</p>
-          <p> kartik </p>
-          <p> Average!!!</p>
-          <p>⭐⭐⭐</p>
-        </div>
-      </section>
-    )}
-  </Fragment>
-);
+      </div>
+    </>
+  );
 };
 
-export default ProductDetail;
+export default ProductDetails;
